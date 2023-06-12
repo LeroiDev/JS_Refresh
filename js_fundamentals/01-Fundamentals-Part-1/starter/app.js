@@ -45,21 +45,106 @@ console.log("South Africa has the greater population");
 
 
 //CODING BMI CALCULATION CHALLENGE
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / (heightMark * heightMark);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+
+if(BMIMark > BMIJohn){
+    console.log(`Mark's BMI ${BMIMark.toFixed(1)} is higher than John's ${BMIJohn.toFixed(1)}!`);
+}else{
+    console.log(`John's BMI ${BMIJohn.toFixed(1)} is higher than Mark's ${BMIMark.toFixed(1)}!.`);
+}
+
 //STRINGS AND TEMPLATE LITERALS
-console.log('START CHECKING HERE. . .');
-let massMark = 78;
-let heighMark = 1.69;
-let massJohn = 92;
-let heightJohn = 1.95;
+const FIRSTNAME = "John";
+const JOB = "Teacher";
+const BIRTHYEAR = 1991;
+const YEAR = 2037 - 1991;
+const DESCRIPTION = `I'm ${FIRSTNAME}. I am a ${JOB} and I am ${YEAR} years old now.`;
+console.log(DESCRIPTION);
 
-let BMIMark = massMark / (heighMark * heighMark); 
-let BMIJohn = massJohn / (heightJohn * heightJohn);
+//IF STATEMENTS 
+let saraAge = 16;
+let isLegal = saraAge >= 18;
+if(isLegal){
+    console.log("Sara is of legal driving age.");
+}else{
+    console.log(`Sara is not of legal age, she will have to wait ${18 - saraAge} years`);
+}
+//SOME SCOPE ALSO DO CONSIDER
+if((BIRTHYEAR - 2000) <= 2000){
+    var century = 20;
+}else{
+    century = 21
+}
+console.log(century);
 
-console.log(BMIMark);
-console.log(BMIJohn);
+//CONVERSION AND COERCION
+let myNum = 100;
+let aStringNumber = '5';
+console.log(myNum + aStringNumber); //NOTE the 1005 is wrong as there is coercion done by js to make both strings and concat not add numbers 
+console.log(myNum + +aStringNumber);
+//or you can do 
+console.log(myNum + Number(aStringNumber));
 
-let markHigherBMI = BMIMark > BMIJohn;
-console.log(markHigherBMI);
+console.log(Number("Jonas"));
+//NaN is still a number type but this is not correctly converted to a number. 
+//NOTE: 
+console.log("10" + "3" + "2"); //1032 string coercion 
+console.log("10" + "3" - "2"); //101 number coercion 
+console.log("10" - "3" - "2"); //5 number coercion 
+console.log("10" +10); // 1010
+console.log(+"10" +10); // 20
+
+// Truthy and falsy values 
+let height = 0; // CATCH this will result in else executing FALSY VALUE
+if(height){
+    console.log("YAY height is DEFINED");
+}else{
+    console.log("OFF NO height is UNDEFINED");
+}
+
+//EQUALITY OPERATORS
+const age = 18;
+if(age === 18)
+console.log("You just became an adult");
+//NOTE avoid using == as if age was a string like '18' that would mean that it would loosely compare to 18 as type coercion will be done 
+let favNum = prompt("Enter your favorite number: ");
+console.log(favNum); // NOTE THIS IS LOGGED AS A STRING !!! 
+console.log(typeof(favNum));
+if(favNum === 23){
+    console.log(`Cool 23 is a nice number`)
+}else{
+    console.log(`This will execute only if you used === as the comparison take note`)
+}
+
+//LOGICAL OPERATORS
+//Sara conditions
+let hasDriversLicence = true;   //A 
+let hasGoodVision = true;       //B
+let isTired = false;            //C
+let shouldDrive = hasDriversLicence && hasGoodVision && !isTired; //Set the situation 
+if(shouldDrive){ //could have done the comparrison here also obviously 
+    console.log("Sara can be allowed to drive"); //In this case she can drive
+}else{
+    console.log("Someone should rather drive Sara"); 
+}
+//CODE CHALLENGE - TROPHY TIME 
+console.log('!***START CHECKING HERE IN THE CONSOLE***!');
+let scoreDolphins = (96 + 108 + 89) / 3;
+let scoreKoalas = (88 + 91 + 110) / 3;
+if(scoreDolphins > scoreKoalas)
+console.log("Dolphins win the trophy");
+else if(scoreKoalas > scoreDolphins)
+console.log("Koalas win the trophy");
+else
+console.log("Both win the trophy");
+
 
 
 
