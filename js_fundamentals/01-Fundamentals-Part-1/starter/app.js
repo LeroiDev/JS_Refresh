@@ -135,7 +135,6 @@ if(shouldDrive){ //could have done the comparrison here also obviously
     console.log("Someone should rather drive Sara"); 
 }
 //CODE CHALLENGE - TROPHY TIME 
-console.log('!***START CHECKING HERE IN THE CONSOLE***!');
 let scoreDolphins = (96 + 108 + 89) / 3;
 let scoreKoalas = (88 + 91 + 110) / 3;
 if(scoreDolphins > scoreKoalas)
@@ -145,9 +144,15 @@ console.log("Koalas win the trophy");
 else
 console.log("Both win the trophy");
 
+//SWITCH STATEMENT
+let day = 'monday';
 
-
-
+//CODE CHALLENGE TIP A BILL
+console.log('!***START CHECKING HERE IN THE CONSOLE***!');
+const bill = 275;
+let tip;
+tip = (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.2;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
 
 
 
