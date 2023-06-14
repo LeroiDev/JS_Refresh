@@ -156,28 +156,194 @@
 // console.log(tips);
 
 //OBJECT LITERAL 
-const jonas = {
-    firstName: "Jonas",
-    lastName: "Smith",
-    age: 2023 - 1991,
-    job: 'Junior Developer',
-    friends: ["Michael","Peter","Steven"]
+// const jonas = {
+//     firstName: "Jonas",
+//     lastName: "Smith",
+//     age: 2023 - 1991,
+//     job: 'Junior Developer',
+//     friends: ["Michael","Peter","Steven"]
+// }
+// console.log(jonas.lastName); //Smith
+// console.log(jonas["lastName"]);
+// //INTERESTING IN THE [] WE CAN PLACE AN EXPRESSION 
+// //NOTE THIS DOES NOT WORK WITH DOT NOTATION 
+// const nameKey = "Name";
+// console.log(jonas["first" + nameKey] + " " + jonas["last" + nameKey]);
+// //NOTE 
+// let userSelection = prompt("What do you want to know about Jonas? - Choose beween age and lastName ?");
+// //NOTE THAT DOT NOTATION DOES NOT WORK
+// //NOTE js will read this as property jonas.userSelection not the value there entered - that's why [].
+// if(jonas[userSelection]){
+//     console.log(`You wanted to know the ${userSelection} of Jonas - it is: ${jonas[userSelection]}`);
+// }else{
+//     userSelection = prompt("What do you want to know about Jonas? - Choose beween age and lastName ?");
+// }
+
+// const jonas = {
+//     firstName: "Jonas",
+//     lastName: "Smith",
+//     birthyear: 1991,
+//     job: 'Junior Developer',
+//     friends: ["Michael","Peter","Steven"],
+//     hasDriversLicence: true,
+//     message: function(){
+//         return `${this.firstName} is a ${this.calcAge()} year old ${this.job} 
+//         and he ${this.hasDriversLicence == true ? 'has a drivers licence' : 
+//         'does not have a drivers licence.'}`
+//     },//NOTE age might not be available it's in a function so call the function!
+//     //it works though but careful!
+//     calcAge: function(){
+//         this.age = 2023 - this.birthyear;
+//         return this.age; 
+//     }, //yes jonas. would work but using this if the object name changes ? 
+// }
+// console.log(jonas.calcAge());
+// console.log(jonas.age); //created age property to use
+// console.log(jonas.message());
+
+//CHALLENGE 7 
+/* Write your code below. Good luck! 🙂 */
+
+// let mark = {
+//     fullName: 'Mark Miller',
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function(){
+//         this.bmi =  this.mass / (this.height * this.height);
+//         return this.bmi;
+//     }
+// }
+// let john = {
+//     fullName: 'John Smith',
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function(){
+//         this.bmi = this.mass / (this.height * this.height)
+//         return this.bmi;
+//     }
+// }
+// //IMPORTANT THAT THE METHOD NEEDS TO BE CALLED TO ACCESS BMI PROPERTY CREATED !!!! NB!!!
+// mark.calcBMI(); // FUNCTION NEEDS TO BE CALLED TO EXECUTE IT'S METHOD BODY THEN .bmi 
+// john.calcBMI(); // BECOMES AVAILABLE ONLY AFTER FUNCTION EXECUTED MAKE SURE TO UNDERSTAND THIS.
+// if(mark.bmi > john.bmi){
+//     console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})`);
+// }else{
+//     console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})`);
+// }
+
+
+// const types = [];
+//     for(let i = 0; i < jonasArray.length; i++){
+//         console.log(jonasArray[i]);
+//         //fill array - 2 ways below.  
+//         // types[i] = typeof(jonasArray[i]);
+//         types.push(typeof(jonasArray[i]));
+//     };
+// // print to check types array 
+// console.log(types);
+// //calculate ages based on yob and add to ages array
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+// for(let i = 0; i < years.length; i++){
+//     ages.push(2023 - years[i]);
+// }
+// console.log(ages);
+
+//loop in reverse
+// const jonasArray = [
+//     'jonas',
+//     'sirsurname',
+//     2023 - 1991,
+//     'junior developer',
+//     ['Michael','Peter','Steven'],
+//     true
+// ];
+// //NOTE on the greater than and equal to! 
+// //would never execute if it were <= 
+// for(let i = jonasArray.length - 1; i >= 0; i--){
+//     console.log(jonasArray[i]);
+// }
+//LOOP WITHIN A LOOP 
+
+// let exercises = ["Exercise One","Exercise Two","Exercise Three"]
+// for(let exercise = 0; exercise < exercises.length; exercise++){
+//     console.log(exercises[exercise]);
+//     //Add another loop for reps note the data flow
+//     for(let rep = 1; rep < 6; rep++){
+//         console.log(rep + " Rep Done");
+//     }
+// } //note how the inner loop completes it's process within the outer loop
+
+//WHILE LOOP - not sure of amount of iterations needed
+// let diceRoll = Math.floor(Math.random() * 6 + 1);
+// while(diceRoll !== 6){
+//     console.log(`You rolled a ${diceRoll} try again. . .`);
+//     diceRoll = Math.floor(Math.random() * 6 + 1);
+// }
+// console.log(`Congratulations you won - you rolled a ${diceRoll}`);
+// //MAKE SURE TO UNDERSTAND THIS CODE AND THE FLOW OF DATA PERFECTLY
+    
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips =[];
+const totals=[];
+function calcTip(bill){
+    let tipAmount;
+    if(bill >= 50 && bill <= 300){
+        tipAmount = bill * 0.15;
+    } 
+    else{
+        tipAmount = bill * 0.2;
+    }
+    return tipAmount;
 }
-console.log(jonas.lastName); //Smith
-console.log(jonas["lastName"]);
-//INTERESTING IN THE [] WE CAN PLACE AN EXPRESSION 
-//NOTE THIS DOES NOT WORK WITH DOT NOTATION 
-const nameKey = "Name";
-console.log(jonas["first" + nameKey] + " " + jonas["last" + nameKey]);
-//NOTE 
-let userSelection = prompt("What do you want to know about Jonas? - Choose beween age and lastName ?");
-//NOTE THAT DOT NOTATION DOES NOT WORK
-//NOTE js will read this as property jonas.userSelection not the value there entered - that's why [].
-if(jonas[userSelection]){
-    console.log(`You wanted to know the ${userSelection} of Jonas - it is: ${jonas[userSelection]}`);
-}else{
-    userSelection = prompt("What do you want to know about Jonas? - Choose beween age and lastName ?");
+for(let i = 0; i < bills.length; i++){
+    tips.push(calcTip(bills[i]));
+    totals.push(calcTip(bills[i]) + bills[i]);
 }
+function calcAverage(arr){
+    debugger;
+    let sum = 0; // NOTE UNDEFINED if not set to value to start with!!!
+    for(let i = 0; i < arr.length; i++){
+        sum+=arr[i];
+    }
+    return sum / arr.length;
+} 
+console.log(bills);
+console.log(tips);
+console.log(totals);
+console.log(`average = ${calcAverage(totals)}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
